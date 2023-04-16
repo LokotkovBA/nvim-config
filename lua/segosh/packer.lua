@@ -28,7 +28,9 @@ return require('packer').startup(function(use)
             }
         end
     })
+    use('folke/tokyonight.nvim')
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('ThePrimeagen/vim-be-good')
     use('nvim-treesitter/playground')
     use('ThePrimeagen/harpoon')
     use("theprimeagen/refactoring.nvim")

@@ -45,3 +45,8 @@ end)
 lsp.format_on_save()
 
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
+
