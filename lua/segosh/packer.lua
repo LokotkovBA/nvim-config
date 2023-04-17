@@ -11,12 +11,8 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use({
-        'AstroNvim/astrotheme',
-        config = function()
-            vim.cmd('colorscheme astrotheme')
-        end
-    })
+    use("nvim-telescope/telescope-file-browser.nvim")
+    use('AstroNvim/astrotheme')
     use({
         "folke/trouble.nvim",
         config = function()
@@ -35,7 +31,6 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
     use("theprimeagen/refactoring.nvim")
     use('mbbill/undotree')
-    use('tpope/vim-fugitive')
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -57,4 +52,47 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
+    use({
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require('nvim-ts-autotag').setup()
+        end
+    })
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-nvim-lua")
+    use("saadparwaiz1/cmp_luasnip")
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+    use {
+        'filipdutescu/renamer.nvim',
+        branch = 'master',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
+    use("numToStr/Comment.nvim")
+    use("kyazdani42/nvim-web-devicons")
+    use("nvim-lua/plenary.nvim")
+    use("MunifTanjim/nui.nvim")
+    use({
+        "NTBBloodbath/galaxyline.nvim",
+        -- your statusline
+        config = function()
+            require("galaxyline.themes.eviline")
+        end,
+        -- some optional icons
+        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+    })
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+    }
+    use("lewis6991/gitsigns.nvim")
+    use("dinhhuy258/git.nvim")
 end)
