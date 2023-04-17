@@ -16,7 +16,7 @@ ls.config.set_config({
         },
     },
 })
-
+ls.filetype_extend("typescriptreact", { "typescript" })
 require("luasnip.loaders.from_vscode").load({ paths = { "~/AppData/Local/nvim/after/plugin/my-snippets" } })
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
     if ls.expand_or_jumpable() then

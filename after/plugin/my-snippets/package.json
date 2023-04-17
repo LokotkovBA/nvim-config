@@ -10,9 +10,9 @@
             },
             {
                 "language": [
-                    "lua"
+                    "typescript"
                 ],
-                "path": "./lua.json"
+                "path": "./typescript.json"
             }
         ]
     }
