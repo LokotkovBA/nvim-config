@@ -1,0 +1,19 @@
+{
+    "name": "my-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "typescriptreact"
+                ],
+                "path": "./typescriptreact.json"
+            },
+            {
+                "language": [
+                    "lua"
+                ],
+                "path": "./lua.json"
+            }
+        ]
+    }
+}
