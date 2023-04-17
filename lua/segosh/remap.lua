@@ -37,3 +37,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 vim.keymap.set("n", "<Tab>", "<C-w>")
+
+vim.keymap.set("n", "<C-s>", function()
+    vim.cmd("update")
+end)
