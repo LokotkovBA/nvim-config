@@ -26,9 +26,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 lsp.setup_nvim_cmp({
-    sources = {
-        { name = "nvim_lsp_signature_help" }
-    },
     mapping = cmp_mappings,
     snippet = {
         expand = function(args)
