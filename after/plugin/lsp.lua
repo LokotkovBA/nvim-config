@@ -20,6 +20,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
             cmp.select_next_item()
         else
             cmp.complete()
+            cmp.select_next_item()
         end
     end, { 'i' }),
     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
