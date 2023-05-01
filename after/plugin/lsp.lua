@@ -37,6 +37,7 @@ lsp.setup_nvim_cmp({
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+    lsp.buffer_autoformat()
 
     local opts = { buffer = bufnr, remap = false }
 
