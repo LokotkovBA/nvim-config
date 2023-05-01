@@ -90,5 +90,6 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use("tpope/vim-fugitive")
-    use("prettier/vim-prettier")
+    use("jose-elias-alvarez/null-ls.nvim")
+    use("MunifTanjim/prettier.nvim")
 end)
