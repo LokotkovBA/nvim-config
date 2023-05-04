@@ -103,4 +103,15 @@ return require('packer').startup(function(use)
         end
     })
     use("f-person/git-blame.nvim")
+    use({
+        "utilyre/barbecue.nvim",
+        tag = "*",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        config = function()
+            require("barbecue").setup()
+        end,
+    })
 end)
