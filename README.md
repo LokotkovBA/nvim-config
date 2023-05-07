@@ -12,7 +12,7 @@ git clone https://github.com/LokotkovBA/nvim-config\
 
 3)
 ```shell
-nvim /lua/segosh/packer.lua
+nvim ~/.config/nvim/lua/segosh/packer.lua
 ```
 ```vim
 :so
