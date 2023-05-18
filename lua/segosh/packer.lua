@@ -128,4 +128,8 @@ return require('packer').startup(function(use)
             }
         end
     })
+    use("ray-x/aurora")
+    use({ 'Everblush/nvim', as = 'everblush' })
+    use("rktjmp/lush.nvim")
+    use("kartikp10/noctis.nvim")
 end)

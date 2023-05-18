@@ -1,11 +1,6 @@
 function SetTheme(color)
-    color = color or "tokyonight-night"
+    color = color or "everblush"
     vim.cmd.colorscheme(color)
-
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
 end
 
 SetTheme()
