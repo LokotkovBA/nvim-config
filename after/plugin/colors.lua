@@ -1,5 +1,5 @@
 function SetTheme(color)
-    color = color or "everblush"
+    color = color or "tokyonight-night"
     vim.cmd.colorscheme(color)
 end
 
