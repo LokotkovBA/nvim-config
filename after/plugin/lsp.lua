@@ -20,19 +20,14 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ["<C-Space>"] = cmp.mapping.complete(),
 })
 
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
+
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings,
-    snippet = {
-        expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-        end,
-    }
 })
 
 lsp.on_attach(function(client, bufnr)
-    lsp.default_keymaps({ buffer = bufnr })
-    lsp.buffer_autoformat()
-
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
