@@ -6,10 +6,8 @@ lsp.ensure_installed({
     "tsserver",
     "eslint",
     "lua_ls",
+    "rust_analyzer"
 })
-
--- Fix Undefined global 'vim'
-lsp.nvim_workspace()
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -41,15 +39,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
-
-require('lspconfig').eslint.setup({
-    on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-        })
-    end,
-})
 
 lsp.setup()
 
