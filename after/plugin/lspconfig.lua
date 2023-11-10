@@ -43,3 +43,22 @@ lspconfig.rust_analyzer.setup({
         }
     }
 })
+--
+-- local function patch(result)
+--     if not vim.tbl_islist(result) or type(result) ~= "table" then
+--         return result
+--     end
+--
+--     return { result[1] }
+-- end
+--
+-- local function handle_gtd(err, result, ctx, ...)
+--     vim.lsp.handlers['textDocument/definition'](err, patch(result), ctx, ...)
+-- end
+--
+-- lspconfig.tsserver.setup {
+--     -- other options
+--     handlers = {
+--         ['textDocument/definition'] = handle_gtd
+--     }
+-- }
