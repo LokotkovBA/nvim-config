@@ -42,9 +42,9 @@ return require('packer').startup(function(use)
             { 'williamboman/mason-lspconfig.nvim' },
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/nvim-cmp' }, -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'L3MON4D3/LuaSnip' }, -- Required
         }
     })
     use({
@@ -105,7 +105,9 @@ return require('packer').startup(function(use)
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
         config = function()
-            require("barbecue").setup()
+            require("barbecue").setup({
+                attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
+            })
         end,
     })
     use("lukas-reineke/indent-blankline.nvim")
