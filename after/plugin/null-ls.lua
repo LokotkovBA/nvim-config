@@ -6,7 +6,7 @@ local async = event == "BufWritePost"
 
 local sources = {
     null_ls.builtins.formatting.prettier.with({
-        filetypes = { "html", "json", "yaml", "markdown", "typescript", "javascript", "vue" },
+        filetypes = { "html", "json", "yaml", "markdown", "typescript", "javascript", "vue", "css", "scss", "sass" },
     })
 }
 

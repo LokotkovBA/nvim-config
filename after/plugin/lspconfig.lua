@@ -46,7 +46,7 @@ lspconfig.rust_analyzer.setup({
 
 local vue_ts_plugin_path = "/Users/boris/.nvm/versions/node/v20.10.0/lib/node_modules/@vue/typescript-plugin"
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     init_options = {
         plugins = {
             {
