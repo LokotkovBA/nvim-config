@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     })
     use("tpope/vim-fugitive")
-    use("jose-elias-alvarez/null-ls.nvim")
+    use("nvimtools/none-ls.nvim")
     use("MunifTanjim/prettier.nvim")
     use({
         "kylechui/nvim-surround",
