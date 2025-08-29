@@ -42,9 +42,9 @@ return require('packer').startup(function(use)
             { 'williamboman/mason-lspconfig.nvim' },
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     })
     use({
@@ -129,5 +129,4 @@ return require('packer').startup(function(use)
     use("rktjmp/lush.nvim")
     use("kartikp10/noctis.nvim")
     use("christoomey/vim-tmux-navigator")
-    use("simrat39/symbols-outline.nvim")
 end)
