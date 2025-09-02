@@ -61,6 +61,19 @@ lspconfig.ts_ls.setup({
 
 lspconfig.volar.setup({})
 
+lspconfig.tailwindcss.setup({
+    settings = {
+        tailwindCSS = {
+            classAttributes = {
+                "class",
+                "className",
+                "classNames",
+                ".+ClassName"
+                },
+            },
+        },
+})
+
 --
 -- local function patch(result)
 --     if not vim.tbl_islist(result) or type(result) ~= "table" then
