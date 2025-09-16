@@ -1,5 +1,5 @@
 function SetTheme(color)
-    color = color or "catppuccin-mocha" --"tokyonight-night"
+    color = color or "catppuccin-mocha" --"catppuccin-latte" --"tokyonight-night"
     vim.cmd.colorscheme(color)
 
 
