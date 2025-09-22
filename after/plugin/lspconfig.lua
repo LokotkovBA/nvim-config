@@ -1,6 +1,36 @@
-local lspconfig = require('lspconfig')
+local function fix_all(opts)
+    opts = opts or {}
 
-lspconfig.eslint.setup({
+    local bufnr = opts.bufnr or vim.api.nvim_get_current_buf()
+    vim.validate("bufnr", bufnr, "number")
+
+    local client = opts.client or vim.lsp.get_clients({ bufnr = bufnr, name = "eslint" })[1]
+
+    if not client then return end
+
+    local request
+
+    if opts.sync then
+        request = function(buf, method, params) client:request_sync(method, params, nil, buf) end
+    else
+        request = function(buf, method, params) client:request(method, params, nil, buf) end
+    end
+
+    request(bufnr, "workspace/executeCommand", {
+        command = "eslint.applyAllFixes",
+        arguments = {
+            {
+                uri = vim.uri_from_bufnr(bufnr),
+                version = vim.lsp.util.buf_versions[bufnr],
+            },
+        },
+    })
+end
+
+vim.lsp.config('eslint', {
+    on_init = function(client)
+        vim.api.nvim_create_user_command("EslintFixAll", function() fix_all({ client = client, sync = true }) end, {})
+    end,
     on_attach = function(_, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
@@ -18,7 +48,7 @@ local on_attach = function(_, bufnr)
     })
 end
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
     on_attach = on_attach,
     settings = {
         Lua = {
@@ -30,7 +60,7 @@ lspconfig.lua_ls.setup({
     }
 })
 
-lspconfig.rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     cmd = {
         "rustup", "run", "stable", "rust-analyzer"
@@ -44,9 +74,9 @@ lspconfig.rust_analyzer.setup({
     }
 })
 
-local vue_ts_plugin_path = "/Users/boris/.nvm/versions/node/v20.10.0/lib/node_modules/@vue/typescript-plugin"
+local vue_ts_plugin_path = "/Users/borislokotkov/.nvm/versions/node/v22.18.0/lib/node_modules/@vue/typescript-plugin"
 
-lspconfig.ts_ls.setup({
+vim.lsp.config('ts_ls', {
     init_options = {
         plugins = {
             {
@@ -59,9 +89,9 @@ lspconfig.ts_ls.setup({
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 })
 
-lspconfig.volar.setup({})
+vim.lsp.config('volar', {})
 
-lspconfig.tailwindcss.setup({
+vim.lsp.config('tailwindcss', {
     settings = {
         tailwindCSS = {
             classAttributes = {
@@ -69,9 +99,9 @@ lspconfig.tailwindcss.setup({
                 "className",
                 "classNames",
                 ".+ClassName"
-                },
             },
         },
+    },
 })
 
 --
