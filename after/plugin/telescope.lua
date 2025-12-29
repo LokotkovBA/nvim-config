@@ -11,4 +11,14 @@ vim.keymap.set('n', '<leader>ps', function()
         end
     )
 end);
+vim.keymap.set('n', '<leader>pr', function()
+    vim.ui.input({ prompt = "Live grep > " },
+        function(input)
+            if not (input and #input > 0) then
+                return
+            end
+            builtin.live_grep({ default_text = input })
+        end
+    )
+end);
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
