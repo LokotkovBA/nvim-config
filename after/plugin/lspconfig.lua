@@ -98,8 +98,12 @@ vim.lsp.config('tailwindcss', {
                 "class",
                 "className",
                 "classNames",
-                ".+ClassName"
+                ".+ClassName",
+                ".+Style"
             },
+            experimental = {
+                classRegex = [["clsx\\(([^)]*)\\)", "'([^']*)'"]]
+            }
         },
     },
 })
