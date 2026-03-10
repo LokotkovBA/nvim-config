@@ -1,6 +1,6 @@
-function SetTheme(color)
-    color = color or "catppuccin-mocha" --"catppuccin-latte" --"tokyonight-night"
-    vim.cmd.colorscheme(color)
+function SetTheme()
+    -- color = color or "catppuccin-latte" --"catppuccin-mocha" --"tokyonight-night"
+    -- vim.cmd.colorscheme(color)
 
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
