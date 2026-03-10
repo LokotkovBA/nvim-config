@@ -77,6 +77,10 @@ vim.lsp.config('rust_analyzer', {
 local vue_ts_plugin_path = "/Users/borislokotkov/.nvm/versions/node/v22.18.0/lib/node_modules/@vue/typescript-plugin"
 
 vim.lsp.config('ts_ls', {
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
     init_options = {
         plugins = {
             {
