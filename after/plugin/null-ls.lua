@@ -6,9 +6,6 @@ local async = event == "BufWritePost"
 
 local sources = {
     null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.formatting.prettier.with({
-        filetypes = { "html", "json", "yaml", "markdown", "typescript", "javascript", "vue", "css", "scss", "sass" },
-    })
 }
 
 null_ls.setup({
@@ -31,7 +28,7 @@ null_ls.setup({
             desc = "[lsp] format on save",
         })
         if client.supports_method("textDocument/rangeFormatting") then
-            vim.keymap.set("x", "<Leader>f", function()
+            vim.keymap.set("v", "<Leader>f", function()
                 vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
             end, { buffer = bufnr, desc = "[lsp] format" })
         end
