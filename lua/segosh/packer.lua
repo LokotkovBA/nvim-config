@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use('wbthomason/packer.nvim');
     use({
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.4',
+        tag = 'v0.2.1',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     })
@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     })
     use('folke/tokyonight.nvim')
     use({ 'catppuccin/nvim', as = 'catppuccin' })
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use({ 'nvim-treesitter/nvim-treesitter', branch = 'main' }, { run = ':TSUpdate' })
     use('ThePrimeagen/vim-be-good')
     use('ThePrimeagen/harpoon')
     use("theprimeagen/refactoring.nvim")
@@ -72,7 +72,7 @@ return require('packer').startup(function(use)
     use("MunifTanjim/nui.nvim")
     use({
         "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
+        branch = "v3.x",
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -111,7 +111,7 @@ return require('packer').startup(function(use)
         end,
     })
     use("lukas-reineke/indent-blankline.nvim")
-    use("RRethy/vim-illuminate")
+    use("UrsaDK/vim-illuminate")
     use("NvChad/nvim-colorizer.lua")
     use({
         "folke/todo-comments.nvim",
