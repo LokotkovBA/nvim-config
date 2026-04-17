@@ -68,7 +68,9 @@ require("neo-tree").setup({
                 end
             end,
         },
-        follow_current_file = true, -- This will find and focus the file in the active buffer every
+        follow_current_file = {
+            enabled = true
+        }, -- This will find and focus the file in the active buffer every
         renderers = {
             file = {
                 { "icon" },
