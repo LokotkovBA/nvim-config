@@ -27,7 +27,22 @@ return require('packer').startup(function(use)
     })
     use('folke/tokyonight.nvim')
     use({ 'catppuccin/nvim', as = 'catppuccin' })
-    use({ 'nvim-treesitter/nvim-treesitter', branch = 'main' }, { run = ':TSUpdate' })
+    use(
+        {
+            'nvim-treesitter/nvim-treesitter',
+            branch = 'main',
+            requires = { {
+                'nvim-treesitter/nvim-treesitter-context',
+                opts = {
+                    max_lines = 4,
+                    multiline_threshold = 2,
+                }
+            } }
+        },
+
+        { run = ':TSUpdate' }
+    )
+    use("nvim-treesitter/nvim-treesitter-textobjects")
     use('ThePrimeagen/vim-be-good')
     use('ThePrimeagen/harpoon')
     use("theprimeagen/refactoring.nvim")
