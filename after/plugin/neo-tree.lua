@@ -80,5 +80,8 @@ require("neo-tree").setup({
                 { "git_status",   highlight = "NeoTreeDimText" },
             },
         },
+        filtered_items = {
+            hide_dotfiles = false,
+        },
     },
 })
