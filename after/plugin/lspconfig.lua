@@ -98,8 +98,12 @@ vim.lsp.config('volar', {})
 vim.lsp.config('tailwindcss', {
     settings = {
         tailwindCSS = {
+            lint = {
+                suggestCanonicalClasses = "ignore"
+            },
             classAttributes = {
                 "class",
+                "class:list",
                 "className",
                 "classNames",
                 ".+ClassName",
@@ -107,7 +111,8 @@ vim.lsp.config('tailwindcss', {
             },
             experimental = {
                 classRegex = [["clsx\\(([^)]*)\\)", "'([^']*)'"]]
-            }
+            },
+            validate = true
         },
     },
 })
