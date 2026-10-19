@@ -9,8 +9,11 @@ return require('packer').startup(function(use)
     use({
         'nvim-telescope/telescope.nvim',
         tag = 'v0.2.1',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = {
+            'nvim-lua/plenary.nvim',
+            -- optional but recommended
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        }
     })
     use("nvim-telescope/telescope-file-browser.nvim")
     use('AstroNvim/astrotheme')
@@ -145,4 +148,36 @@ return require('packer').startup(function(use)
     use("kartikp10/noctis.nvim")
     use("christoomey/vim-tmux-navigator")
     use("cormacrelf/dark-notify")
+    use({
+        "pmizio/typescript-tools.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+    })
+    use({
+        'mfussenegger/nvim-dap',
+        dependencies = {
+            'nvim-neotest/nvim-nio',
+            'rcarriga/nvim-dap-ui',
+            {
+                'ownself/nvim-dap-unity',
+                build = function()
+                    require('nvim-dap-unity').install()
+                end,
+            },
+        },
+        config = function()
+            local dap = require 'dap'
+            dap.configurations.cs = dap.configurations.cs or {}
+            vim.list_extend(dap.configurations.cs, {
+                {
+                    name = 'Unity Debugger',
+                    type = 'coreclr',
+                    request = 'attach',
+                    program = function()
+                        return vim.fn.input('Path to Unity exe or pid', vim.fn.getcwd(), 'file')
+                    end,
+                },
+            })
+        end,
+    })
+    use("stevearc/conform.nvim")
 end)

@@ -74,12 +74,15 @@ vim.lsp.config('rust_analyzer', {
     }
 })
 
-local vue_ts_plugin_path = "/Users/borislokotkov/.nvm/versions/node/v22.18.0/lib/node_modules/@vue/typescript-plugin"
-
+local vue_ts_plugin_path = "/Users/lokotkovba/.nvm/versions/node/v22.22.1/lib/node_modules/@vue/typescript-plugin"
 vim.lsp.config('ts_ls', {
-    on_attach = function(client)
+    on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
+
+        local opts = { buffer = bufnr, remap = false }
+
+        vim.keymap.set("n", "gd", "<cmd>TypescriptGoToSourceDefinition<cr>", opts)
     end,
     init_options = {
         plugins = {
@@ -90,7 +93,7 @@ vim.lsp.config('ts_ls', {
             }
         }
     },
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    filetypes = { 'vue' },
 })
 
 vim.lsp.config('volar', {})
@@ -104,6 +107,7 @@ vim.lsp.config('tailwindcss', {
             classAttributes = {
                 "class",
                 "class:list",
+                ".+class",
                 "className",
                 "classNames",
                 ".+ClassName",
