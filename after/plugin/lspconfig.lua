@@ -98,6 +98,21 @@ vim.lsp.config('ts_ls', {
 
 vim.lsp.config('volar', {})
 
+vim.lsp.config('roslyn_ls', {
+    capabilities = {
+        workspace = {
+            didChangeWatchedFiles = { dynamicRegistration = false },
+        },
+    },
+    settings = {
+        -- Only analyze files you actually have open, not the whole Unity solution
+        ["csharp|background_analysis"] = {
+            dotnet_analyzer_diagnostics_scope = "openFiles",
+            dotnet_compiler_diagnostics_scope = "openFiles",
+        },
+    },
+})
+
 vim.lsp.config('tailwindcss', {
     settings = {
         tailwindCSS = {

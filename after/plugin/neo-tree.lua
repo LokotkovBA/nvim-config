@@ -82,6 +82,8 @@ require("neo-tree").setup({
         },
         filtered_items = {
             hide_dotfiles = false,
+            hide_by_name = { "Library", "Temp", "Logs", "obj", "UserSettings" },
+            hide_by_pattern = { "*.meta" },
         },
     },
 })

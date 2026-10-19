@@ -20,6 +20,7 @@ local parsers = {
     "jsx",
     "tsx",
     "scss",
+    "c_sharp",
     "gitignore",
     "json",
     "pug",

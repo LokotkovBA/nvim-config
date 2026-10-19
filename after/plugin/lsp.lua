@@ -6,8 +6,11 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
         "ts_ls",
+        "vue_ls",
         "lua_ls",
-        "rust_analyzer"
+        "tailwindcss",
+        "rust_analyzer",
+        "roslyn_ls",
     },
     handlers = {
         lsp.default_setup,
